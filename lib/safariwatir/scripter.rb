@@ -463,6 +463,10 @@ var element = result ? result.singleNodeValue : null;
 |, yield)
     end
 
+    def operate_by_label(label, &block)
+      js.operate("var element = document.getElementById('#{label.target_id}');", yield)
+    end
+
     def operate_by(element, attribute)
       js.operate(%|var elements = document.getElementsByTagName('#{element.tag}');
 var element = undefined;

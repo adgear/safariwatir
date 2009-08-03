@@ -131,7 +131,12 @@ module Watir
         if scripter_suffix.nil?
           raise Watir::Exception::MissingWayOfFindingObjectException, "SafariWatir does not currently support finding by #{how}"
         end
-        @scripter.send("operate_#{scripter_suffix}", self, &block)        
+        obj = if(how == :label)
+          Label.new(@scripter, :text, what)
+        else
+          self
+        end
+        @scripter.send("operate_#{scripter_suffix}", obj, &block)
       end
 
       OPERATIONS = {
@@ -148,8 +153,7 @@ module Watir
         :value => "by_input_value",
         :caption => "by_input_value",
         :src => "by_src",
-        :title => "by_title",
-        :xpath => "by_xpath",
+        :label => "by_label",
       }
     end
 

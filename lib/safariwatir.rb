@@ -153,7 +153,9 @@ module Watir
         :value => "by_input_value",
         :caption => "by_input_value",
         :src => "by_src",
+        :xpath => "by_xpath",
         :label => "by_label",
+        :css => "by_css",
       }
     end
 

@@ -497,6 +497,10 @@ var element = result ? result.singleNodeValue : null;
       js.operate("var element = document.getElementById('#{label.target_id}');", yield)
     end
 
+    def operate_by_css(element)
+      js.operate(%|var element = document.querySelector('#{element.what}');|, yield)
+    end
+
     def operate_by(element, attribute)
       js.operate(%|var elements = document.getElementsByTagName('#{element.tag}');
 var element = undefined;

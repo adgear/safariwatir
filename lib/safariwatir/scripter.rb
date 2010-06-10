@@ -591,7 +591,6 @@ SCRIPT`
 
     def execute(script, element = nil)
       response = eval_js(script)
-      puts "Evaluated script '#{script}' and got response '#{response}'"
       case response
         when NO_RESPONSE
           nil

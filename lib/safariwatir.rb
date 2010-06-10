@@ -207,6 +207,12 @@ module Watir
       def tag; "IMG"; end
     end
     
+    class S < HtmlElement
+      include Clickable
+      
+      def tag; "S"; end
+    end
+    
     class Button < InputElement
     end
         
@@ -552,6 +558,10 @@ module Watir
 
     def ul(how, what)
       Ul.new(scripter, how, what)
+    end
+
+    def s(how, what)
+      S.new(scripter, how, what)
     end
     
     def contains_text(what)

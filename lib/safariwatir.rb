@@ -274,6 +274,10 @@ module Watir
     end
 
     class Label < ContentElement
+      def target_id
+        attr('for') || ''
+      end
+
       def tag; "LABEL"; end
     end
 

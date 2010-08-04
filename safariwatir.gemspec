@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dave Hoover", "Tom Copeland", "Fran\303\247ois Beausoleil"]
-  s.date = %q{2010-06-10}
+  s.date = %q{2010-08-04}
   s.description = %q{WATIR stands for "Web Application Testing in Ruby".  See WATIR project for more information.  This is a Safari-version of the original IE-only WATIR.}
   s.email = %q{dave@obtiva.com}
   s.extra_rdoc_files = [
@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://safariwatir.rubyforge.org/}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Automated testing tool for web applications.}
   s.test_files = [
     "spec/spec_helper.rb",
@@ -123,7 +123,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
       s.add_runtime_dependency(%q<rb-appscript>, [">= 0.5.3"])
     else

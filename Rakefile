@@ -11,6 +11,9 @@ begin
     gem.homepage = %q{http://safariwatir.rubyforge.org/}
     gem.authors = ["Dave Hoover", "Tom Copeland", "François Beausoleil"]
 
+    # This also includes other dependencies, such as html files
+    gem.test_files = FileList["spec/**/*"]
+
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_dependency(%q<rb-appscript>, ">= 0.5.3")
   end

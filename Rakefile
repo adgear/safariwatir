@@ -11,14 +11,31 @@ begin
     gem.homepage = %q{http://safariwatir.rubyforge.org/}
     gem.authors = ["Dave Hoover", "Tom Copeland", "François Beausoleil"]
 
-    # This also includes other dependencies, such as html files
-    gem.test_files = FileList["spec/**/*"]
+    # Skip the files, since Bundler doesn't support submodules yet
+    gem.test_files = []
 
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_dependency(%q<rb-appscript>, ">= 0.5.3")
   end
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+end
+
+namespace :gemspec do
+  task :generate => "submodules:ensure"
+end
+
+namespace :submodules do
+  task :ensure do
+    unless File.file?("spec/watirspec/LICENSE")
+      raise "Missing specs: run rake submodules:update"
+    end
+  end
+
+  task :update do
+    sh "git submodule init"
+    sh "git submodule update"
+  end
 end
 
 require 'spec/rake/spectask'
